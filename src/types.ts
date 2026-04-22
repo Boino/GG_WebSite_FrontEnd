@@ -14,6 +14,9 @@ export type Product = {
   fromPrice?: boolean;
   options: ProductOption[];
   summary: string;
+  bestFor: string;
+  skillLevel: string;
+  waveRange: string;
   categoryTag: string;
   thumbnailSrc: string;
   galleryImages: string[];
@@ -38,11 +41,13 @@ export type DesignArtwork = {
   id: string;
   name: string;
   imageSrc: string;
+  description: string;
 };
 
 export type DesignCategory = {
   slug: string;
   name: string;
+  description: string;
   thumbnailSrc: string;
   headerImageSrc: string;
   artworks: DesignArtwork[];

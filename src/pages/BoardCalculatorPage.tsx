@@ -18,8 +18,8 @@ type RecommendationCardData = RecommendationDescriptor & {
 
 const defaultForm: CalculatorFormData = {
   unitSystem: "metric",
-  metricMeters: "1",
-  metricCentimeters: "75",
+  metricMeters: "",
+  metricCentimeters: "175",
   imperialFeet: "5",
   imperialInches: "9",
   weightKilograms: "75",
@@ -77,7 +77,7 @@ export function BoardCalculatorPage() {
       <section className="page-hero compact board-calculator-header">
         <p className="eyebrow">Board Selector</p>
         <h1>Board Calculator</h1>
-        <p>Enter your rider profile and get three starter recommendations for small, medium, and large waves.</p>
+        <p>Enter your height, weight, and level to get a practical starting point for small, medium, and larger waves.</p>
       </section>
 
       <section className="board-calculator-layout">
@@ -103,16 +103,6 @@ export function BoardCalculatorPage() {
 
           {form.unitSystem === "metric" ? (
             <div className="calculator-input-grid">
-              <label className="field">
-                <span>Height - meters</span>
-                <input
-                  type="number"
-                  min="0"
-                  step="0.01"
-                  value={form.metricMeters}
-                  onChange={(event) => updateFormValue("metricMeters", event.target.value)}
-                />
-              </label>
               <label className="field">
                 <span>Height - centimeters</span>
                 <input
@@ -181,7 +171,7 @@ export function BoardCalculatorPage() {
           </label>
 
           <button className="btn" type="submit">
-            Get Recommendations
+            Get recommendations
           </button>
 
           {errors.length > 0 && (
@@ -197,7 +187,7 @@ export function BoardCalculatorPage() {
           {recommendationCards.length === 0 ? (
             <div className="product-panel calculator-empty-state">
               <h2>Recommendation preview</h2>
-              <p>Submit your rider data to view three wave-based board suggestions.</p>
+              <p>Submit your data to view three board suggestions with target volume ranges.</p>
             </div>
           ) : (
             <div className="calculator-wave-grid">

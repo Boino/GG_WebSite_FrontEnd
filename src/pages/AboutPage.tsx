@@ -18,17 +18,14 @@ export function AboutPage() {
           <img key={slide} src={slide} alt="" aria-hidden="true" className={`about-landing-image ${index === activeSlide ? "is-active" : ""}`} />
         ))}
         <div className="about-landing-overlay">
-          <h1>Discover Our Story</h1>
-          <p>
-            We build wooden surf pieces by combining practical shaping knowledge with design-led engraving. The process mixes hand-finishing,
-            durable materials, and visual storytelling.
-          </p>
+          <h1>About us</h1>
+          <p>We are a family business based in the north of Spain, focused on handcrafted hollow wooden surfboards and related surf products.</p>
         </div>
       </section>
 
       <section className="page-hero compact">
-        <h2>Discover Your Unique Design</h2>
-        <p>Browse design families and apply them to your preferred board model.</p>
+        <h2>How we work</h2>
+        <p>Every board is made to order. We can adapt shape, dimensions, and graphics to fit each customer and intended use.</p>
       </section>
     </>
   );

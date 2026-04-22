@@ -18,6 +18,7 @@ export function DesignDetailPage() {
     <section className="page-hero design-category-page">
       <p className="eyebrow">Design Category</p>
       <h1>{category.name}</h1>
+      <p>{category.description}</p>
       <div className="design-category-header-image-wrap">
         <img src={category.headerImageSrc} alt={`${category.name} category header`} className="design-category-header-image" />
       </div>
@@ -25,7 +26,11 @@ export function DesignDetailPage() {
         {category.artworks.map((artwork) => (
           <figure key={artwork.id} className="design-mosaic-item">
             <img src={artwork.imageSrc} alt={artwork.name} />
-            <figcaption>{artwork.name}</figcaption>
+            <figcaption>
+              <strong>{artwork.name}</strong>
+              <br />
+              {artwork.description}
+            </figcaption>
           </figure>
         ))}
       </div>
