@@ -2,7 +2,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import type { TouchEventHandler } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { BoardPreview } from "../components/BoardPreview";
-import { DesignSelectionModal } from "../components/DesignSelectionModal";
+import { DesignSelectorPanel } from "../components/DesignSelectorPanel";
 import { formatSelectedDesignLabel, getCompatibleDesignsForProduct } from "../data/designOverlays";
 import { productBySlugPath, products } from "../data/products";
 import { useCart } from "../state/CartContext";
@@ -21,7 +21,6 @@ export function ProductPage() {
   const [selectedOptions, setSelectedOptions] = useState<Record<string, string>>({});
   const [appliedDesign, setAppliedDesign] = useState<ProductDesignOverlay | null>(null);
   const [appliedDesignPlacement, setAppliedDesignPlacement] = useState<DesignPlacement>(defaultPlacement);
-  const [modalOpen, setModalOpen] = useState(false);
   const [status, setStatus] = useState<ProductStatus>(blankStatus);
   const [activeImageIndex, setActiveImageIndex] = useState(0);
   const touchStartXRef = useRef<number | null>(null);
@@ -117,10 +116,10 @@ export function ProductPage() {
               {galleryImages.length > 1 && (
                 <>
                   <button type="button" className="carousel-nav prev" onClick={goToPreviousImage} aria-label="Previous image">
-                    ‹
+                    {"<"}
                   </button>
                   <button type="button" className="carousel-nav next" onClick={goToNextImage} aria-label="Next image">
-                    ›
+                    {">"}
                   </button>
                 </>
               )}
@@ -146,6 +145,22 @@ export function ProductPage() {
               {product.fromPrice ? "from " : ""}EUR {product.price.toFixed(2)}
             </p>
             <p>{product.summary}</p>
+            <p className="meta-small"><strong>Best for:</strong> {product.bestFor}</p>
+            <p className="meta-small"><strong>Skill level:</strong> {product.skillLevel}</p>
+            <p className="meta-small"><strong>Wave range:</strong> {product.waveRange}</p>
+
+            {compatibleDesigns.length > 0 && (
+              <DesignSelectorPanel
+                designs={compatibleDesigns}
+                selectedDesign={appliedDesign}
+                onSelect={(design) => {
+                  setAppliedDesign(design);
+                  const backIndex = galleryImages.findIndex((image) => image === designBaseImage);
+                  if (backIndex >= 0) setActiveImageIndex(backIndex);
+                }}
+                onClear={() => setAppliedDesign(null)}
+              />
+            )}
 
             {product.options.map((option) => (
               <label className="field" key={option.name}>
@@ -177,12 +192,6 @@ export function ProductPage() {
             <button className="btn" type="button" onClick={handleAdd}>
               Add To Cart
             </button>
-            {compatibleDesigns.length > 0 && (
-              <button className="btn btn-secondary" type="button" onClick={() => setModalOpen(true)}>
-                Select Design
-              </button>
-            )}
-            {appliedDesign && <p className="selected-design-label">{formatSelectedDesignLabel(appliedDesign)}</p>}
             {status.type !== "idle" && <p className={`status ${status.type}`}>{status.message}</p>}
             <Link className="btn btn-secondary product-back-btn" to={product.collectionPath}>
               Back to {product.collectionTitle}
@@ -206,24 +215,7 @@ export function ProductPage() {
           </div>
         </section>
       )}
-
-      {modalOpen && compatibleDesigns.length > 0 && (
-        <DesignSelectionModal
-          product={product}
-          boardImageSrc={designBaseImage}
-          designs={compatibleDesigns}
-          initialDesign={appliedDesign}
-          initialPlacement={appliedDesignPlacement}
-          onClose={() => setModalOpen(false)}
-          onSave={(design, placement) => {
-            setAppliedDesign(design);
-            setAppliedDesignPlacement(placement);
-            const backIndex = galleryImages.findIndex((image) => image === designBaseImage);
-            if (backIndex >= 0) setActiveImageIndex(backIndex);
-            setModalOpen(false);
-          }}
-        />
-      )}
     </>
   );
 }
+

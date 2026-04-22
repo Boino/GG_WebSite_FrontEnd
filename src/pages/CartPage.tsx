@@ -9,7 +9,7 @@ export function CartPage() {
     return (
       <section className="page-hero compact">
         <h1>Cart (0)</h1>
-        <p>Your cart is empty.</p>
+        <p>Your cart is empty. Browse products and add a board to get started.</p>
         <Link className="btn" to="/shop">
           Continue Shopping
         </Link>
@@ -56,7 +56,7 @@ export function CartPage() {
           Clear Cart
         </button>
         <button type="button" className="btn" disabled>
-          Checkout (Mock)
+          Checkout (demo)
         </button>
       </div>
     </section>

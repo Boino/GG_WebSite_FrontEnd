@@ -45,7 +45,7 @@ export function ContactPage() {
   return (
     <section className="page-hero compact">
       <h1>Contact</h1>
-      <p>Tell us about your custom board idea and preferred dimensions.</p>
+      <p>Tell us your requirements and we will help you define the right board, size, and design.</p>
 
       <form className="contact-form" onSubmit={onSubmit} noValidate>
         <label className="field">
@@ -64,11 +64,11 @@ export function ContactPage() {
         </label>
 
         <button className="btn" type="submit" disabled={submitting}>
-          {submitting ? "Sending..." : "SEND"}
+          {submitting ? "Sending..." : "Send"}
         </button>
 
         {error && <p className="status error">{error}</p>}
-        {submitted && <p className="status success">Thank you!</p>}
+        {submitted && <p className="status success">Thank you. We will get back to you soon.</p>}
       </form>
     </section>
   );

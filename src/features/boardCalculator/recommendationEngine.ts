@@ -29,17 +29,17 @@ const PLACEHOLDER_LOOKUP_TABLE: PlaceholderLookupRow[] = [
       small: {
         productSlugPath: "/shop-longboards/p/longboard",
         suggestedVolumeRange: "46-52 L",
-        summary: "Stable option to generate glide and easy wave entry."
+        summary: "Stable glide-focused option for easier take-off in small surf."
       },
       medium: {
         productSlugPath: "/shop-evolutive-boards/p/hybrid",
         suggestedVolumeRange: "42-48 L",
-        summary: "Balanced shape for progression and forgiving turns."
+        summary: "Balanced board for progression with forgiving turns."
       },
       large: {
         productSlugPath: "/shop-evolutive-boards/p/funboard",
         suggestedVolumeRange: "38-44 L",
-        summary: "Keeps paddling support while improving control on steeper faces."
+        summary: "Keeps paddle support while adding control on steeper sections."
       }
     }
   },
@@ -50,12 +50,12 @@ const PLACEHOLDER_LOOKUP_TABLE: PlaceholderLookupRow[] = [
       small: {
         productSlugPath: "/shop-evolutive-boards/p/hybrid",
         suggestedVolumeRange: "40-46 L",
-        summary: "Reliable small-wave option with extra foam for easier speed."
+        summary: "Reliable small-wave option with extra volume for easier speed."
       },
       medium: {
         productSlugPath: "/shop-evolutive-boards/p/funboard",
         suggestedVolumeRange: "36-42 L",
-        summary: "Versatile profile for mixed sections."
+        summary: "Versatile profile for mixed sections and varied conditions."
       },
       large: {
         productSlugPath: "/shop/p/round-tail",
@@ -76,12 +76,12 @@ const PLACEHOLDER_LOOKUP_TABLE: PlaceholderLookupRow[] = [
       medium: {
         productSlugPath: "/shop/p/round-tail",
         suggestedVolumeRange: "30-35 L",
-        summary: "All-around performance target for regular conditions."
+        summary: "All-around performance option for regular sessions."
       },
       large: {
         productSlugPath: "/shop/p/swallow-tail",
         suggestedVolumeRange: "28-33 L",
-        summary: "Lower-volume recommendation for hold and confidence in bigger surf."
+        summary: "Lower-volume recommendation for hold in bigger waves."
       }
     }
   },
@@ -92,12 +92,12 @@ const PLACEHOLDER_LOOKUP_TABLE: PlaceholderLookupRow[] = [
       small: {
         productSlugPath: "/shop/p/twin-fish-tail",
         suggestedVolumeRange: "32-37 L",
-        summary: "Fast and playful setup for small, weaker waves."
+        summary: "Fast and playful setup for weaker waves."
       },
       medium: {
         productSlugPath: "/shop/p/swallow-tail",
         suggestedVolumeRange: "28-33 L",
-        summary: "Drive-oriented recommendation for regular performance sessions."
+        summary: "Drive-oriented recommendation for performance sessions."
       },
       large: {
         productSlugPath: "/shop/p/round-tail",

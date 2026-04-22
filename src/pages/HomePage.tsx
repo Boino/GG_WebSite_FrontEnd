@@ -25,16 +25,15 @@ export function HomePage() {
           />
         ))}
         <div className="home-landing-overlay">
-          <h1>Welcome to our expertly handcrafted surfboard collection</h1>
-          <p>
-            Wooden boards, custom engravings, and surf-inspired craftsmanship.
-          </p>
+          <h1>Family-built wooden surfboards from northern Spain</h1>
+          <p>We craft hollow wooden surfboards, balance boards, and decorative surf pieces for riders and surf spaces.</p>
         </div>
       </section>
 
       <div className="home-content-shell">
         <section className="home-catalog-overview">
           <h2>Product Catalog</h2>
+          <p>Each model can be adapted to your needs, including custom shape, dimensions, and engraved design.</p>
           <div className="home-catalog-grid">
             {homeCatalogCards.map((card) => (
               <Link key={card.label} to={card.path} className="home-catalog-card">
@@ -48,10 +47,11 @@ export function HomePage() {
         </section>
 
         <section className="info-callout">
-          <h2>Reach Out to Us</h2>
-          <p>
-            Want your own logo or pattern engraved into your next board? Share your concept and we will craft a custom piece around it.
-          </p>
+          <h2>Tell us what you need</h2>
+          <p>Share your requirements and we will help you define the right shape, size, and design for your project.</p>
+          <Link className="btn" to="/contact">
+            Contact Us
+          </Link>
         </section>
       </div>
     </>

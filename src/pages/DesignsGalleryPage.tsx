@@ -5,7 +5,7 @@ export function DesignsGalleryPage() {
   return (
     <section className="page-hero designs-index">
       <h1>Design Gallery</h1>
-      <p>Pick a design category to explore all available engravings.</p>
+      <p>Choose a design family and review artwork options before applying one to your board.</p>
       <div className="design-category-grid">
         {designCategories.map((category) => (
           <Link key={category.slug} to={`/designs-gallery/${category.slug}`} className="design-category-tile">
